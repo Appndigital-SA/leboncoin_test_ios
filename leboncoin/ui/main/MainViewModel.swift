@@ -36,7 +36,7 @@ class MainViewModel {
                     }
                 }
               }) { items in
-                  self.items = items.map({ $0.toModel() })
+                  self.items = items.map({ $0.toModel() }).sorted(by: { $0.creationDate > $1.creationDate })
             }
             .store(in: &cancellables)
     }

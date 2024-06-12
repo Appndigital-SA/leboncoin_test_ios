@@ -23,6 +23,8 @@
 		B72B8C422C19F4E60045C439 /* UsesAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C412C19F4E60045C439 /* UsesAutoLayout.swift */; };
 		B72B8C452C19F5220045C439 /* LBCItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C442C19F5220045C439 /* LBCItemCell.swift */; };
 		B72B8C482C19F93C0045C439 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */; };
+		B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C492C1A1B550045C439 /* UIView+extension.swift */; };
+		B72B8C4D2C1A1C570045C439 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		B72B8C412C19F4E60045C439 /* UsesAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsesAutoLayout.swift; sourceTree = "<group>"; };
 		B72B8C442C19F5220045C439 /* LBCItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCItemCell.swift; sourceTree = "<group>"; };
 		B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
+		B72B8C492C1A1B550045C439 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 		B72B8C3F2C19F4D50045C439 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				B72B8C4B2C1A1C490045C439 /* custom */,
 				B72B8C462C19F92A0045C439 /* extensions */,
 				B72B8C402C19F4DF0045C439 /* helpers */,
 			);
@@ -230,8 +235,17 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */,
+				B72B8C492C1A1B550045C439 /* UIView+extension.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		B72B8C4B2C1A1C490045C439 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */,
+			);
+			path = custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +384,11 @@
 				B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */,
 				B72B8C452C19F5220045C439 /* LBCItemCell.swift in Sources */,
 				B72B8C2B2C18D3B00045C439 /* MainViewController.swift in Sources */,
+				B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */,
 				B72B8C3C2C19EE050045C439 /* LBCItem.swift in Sources */,
 				B72B8C2F2C19871C0045C439 /* ApiService.swift in Sources */,
 				B72B8C382C19C9EE0045C439 /* MainViewModel.swift in Sources */,
+				B72B8C4D2C1A1C570045C439 /* PaddingLabel.swift in Sources */,
 				B72B8C482C19F93C0045C439 /* UIImageView+extension.swift in Sources */,
 				B72B8C3E2C19EE4F0045C439 /* LBCImagesUrl.swift in Sources */,
 			);

@@ -16,10 +16,19 @@ class MainViewController: UIViewController {
         return tableView
     }()
     
-    private var viewModel: MainViewModel = MainViewModel()
+    private let viewModel: MainViewModel
     private var cancellables = Set<AnyCancellable>()
     
     private var items: [LBCItem] = []
+    
+    init(viewModel: MainViewModel = MainViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +46,7 @@ class MainViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.backgroundColor = .white
     }
     
@@ -69,6 +78,10 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return LBCItemCell(item: items[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
 }
 
