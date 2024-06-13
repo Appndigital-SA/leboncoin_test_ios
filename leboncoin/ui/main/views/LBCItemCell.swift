@@ -37,6 +37,13 @@ class LBCItemCell: UITableViewCell {
     }()
     
     @UsesAutoLayout
+    private var itemCatgeory: UILabel = {
+        let lbl = PaddingLabel(withInsets: 2.0, 2.0, 4.0, 4.0)
+        lbl.textColor = .white
+       return lbl
+    }()
+    
+    @UsesAutoLayout
     private var itemPrice: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
@@ -50,7 +57,7 @@ class LBCItemCell: UITableViewCell {
         contentView.backgroundColor = .white
         accessoryType = .disclosureIndicator
         
-        contentView.addSubviews(itemImage, itemTitle, itemUrgent, itemPrice)
+        contentView.addSubviews(itemImage, itemTitle, itemCatgeory, itemUrgent, itemPrice)
         configureView()
         updateUI()
     }
@@ -69,8 +76,11 @@ class LBCItemCell: UITableViewCell {
         itemTitle.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant:10).isActive = true
         itemTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:-10).isActive = true
         
-        itemUrgent.topAnchor.constraint(equalTo: itemImage.topAnchor).isActive = true
-        itemUrgent.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant:10).isActive = true
+        itemCatgeory.topAnchor.constraint(equalTo: itemImage.topAnchor).isActive = true
+        itemCatgeory.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant:10).isActive = true
+        
+        itemUrgent.bottomAnchor.constraint(equalTo: itemImage.bottomAnchor).isActive = true
+        itemUrgent.leadingAnchor.constraint(equalTo: itemImage.leadingAnchor).isActive = true
         
         itemPrice.bottomAnchor.constraint(equalTo: itemImage.bottomAnchor).isActive = true
         itemPrice.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant:10).isActive = true
@@ -82,7 +92,17 @@ class LBCItemCell: UITableViewCell {
         }
         
         itemTitle.text = lbcItem.title
+        
+        if let category = lbcItem.category {
+            itemCatgeory.isHidden = false
+            itemCatgeory.text = category.name
+            itemCatgeory.backgroundColor = category.getColor()
+        } else {
+            itemCatgeory.isHidden = true
+        }
+        
         itemUrgent.isHidden = !lbcItem.isUrgent
+        
         itemPrice.text = "Prix: \(lbcItem.price) €"
     }
 }

@@ -30,14 +30,14 @@ struct LBCItemDto: Decodable {
 }
 
 extension LBCItemDto{
-    func toModel() -> LBCItem {
+    func toModel(category: LBCCategory?) -> LBCItem {
         return LBCItem(
             id: id,
-            categoryId: categoryId,
             title: title,
             description: description,
             price: price,
             imagesUrl: imagesUrl.toModel(),
+            category: category,
             creationDate: dateFormatter.date(from: creationDate) ?? Date(),
             isUrgent: isUrgent
         )

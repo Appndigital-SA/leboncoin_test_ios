@@ -25,6 +25,11 @@
 		B72B8C482C19F93C0045C439 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */; };
 		B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C492C1A1B550045C439 /* UIView+extension.swift */; };
 		B72B8C4D2C1A1C570045C439 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */; };
+		B72B8C502C1A20F60045C439 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C4F2C1A20F60045C439 /* ItemRepository.swift */; };
+		B72B8C522C1AC9D70045C439 /* LBCCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C512C1AC9D70045C439 /* LBCCategoryDto.swift */; };
+		B72B8C542C1ACAFD0045C439 /* LBCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C532C1ACAFD0045C439 /* LBCCategory.swift */; };
+		B72B8C572C1AD4850045C439 /* GetItemListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C562C1AD4850045C439 /* GetItemListUseCase.swift */; };
+		B72B8C5A2C1B13440045C439 /* ItemRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8C592C1B13440045C439 /* ItemRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 		B72B8C492C1A1B550045C439 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		B72B8C4F2C1A20F60045C439 /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
+		B72B8C512C1AC9D70045C439 /* LBCCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCCategoryDto.swift; sourceTree = "<group>"; };
+		B72B8C532C1ACAFD0045C439 /* LBCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCCategory.swift; sourceTree = "<group>"; };
+		B72B8C562C1AD4850045C439 /* GetItemListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemListUseCase.swift; sourceTree = "<group>"; };
+		B72B8C592C1B13440045C439 /* ItemRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C2D2C1984DE0045C439 /* network */,
+				B72B8C582C1B13300045C439 /* repositories */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C312C1987750045C439 /* LBCItemDto.swift */,
+				B72B8C512C1AC9D70045C439 /* LBCCategoryDto.swift */,
 				B72B8C332C1988930045C439 /* LBCImagesUrlDto.swift */,
 			);
 			path = dto;
@@ -190,6 +202,8 @@
 		B72B8C392C19EDC90045C439 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				B72B8C552C1AD4720045C439 /* usecases */,
+				B72B8C4E2C1A20DD0045C439 /* protocols */,
 				B72B8C3A2C19EDE20045C439 /* entities */,
 			);
 			path = domain;
@@ -200,6 +214,7 @@
 			children = (
 				B72B8C3B2C19EE050045C439 /* LBCItem.swift */,
 				B72B8C3D2C19EE4F0045C439 /* LBCImagesUrl.swift */,
+				B72B8C532C1ACAFD0045C439 /* LBCCategory.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -246,6 +261,30 @@
 				B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */,
 			);
 			path = custom;
+			sourceTree = "<group>";
+		};
+		B72B8C4E2C1A20DD0045C439 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B72B8C4F2C1A20F60045C439 /* ItemRepository.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		B72B8C552C1AD4720045C439 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				B72B8C562C1AD4850045C439 /* GetItemListUseCase.swift */,
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		B72B8C582C1B13300045C439 /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B72B8C592C1B13440045C439 /* ItemRepositoryImpl.swift */,
+			);
+			path = repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,12 +423,17 @@
 				B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */,
 				B72B8C452C19F5220045C439 /* LBCItemCell.swift in Sources */,
 				B72B8C2B2C18D3B00045C439 /* MainViewController.swift in Sources */,
+				B72B8C502C1A20F60045C439 /* ItemRepository.swift in Sources */,
 				B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */,
 				B72B8C3C2C19EE050045C439 /* LBCItem.swift in Sources */,
+				B72B8C522C1AC9D70045C439 /* LBCCategoryDto.swift in Sources */,
 				B72B8C2F2C19871C0045C439 /* ApiService.swift in Sources */,
+				B72B8C542C1ACAFD0045C439 /* LBCCategory.swift in Sources */,
+				B72B8C572C1AD4850045C439 /* GetItemListUseCase.swift in Sources */,
 				B72B8C382C19C9EE0045C439 /* MainViewModel.swift in Sources */,
 				B72B8C4D2C1A1C570045C439 /* PaddingLabel.swift in Sources */,
 				B72B8C482C19F93C0045C439 /* UIImageView+extension.swift in Sources */,
+				B72B8C5A2C1B13440045C439 /* ItemRepositoryImpl.swift in Sources */,
 				B72B8C3E2C19EE4F0045C439 /* LBCImagesUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

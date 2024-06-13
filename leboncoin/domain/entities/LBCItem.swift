@@ -9,11 +9,11 @@ import Foundation
 
 struct LBCItem {
     let id: Int
-    let categoryId: Int
     let title: String
     let description: String
     let price: Int
     let imagesUrl: LBCImagesUrl?
+    let category: LBCCategory?
     let creationDate: Date
     let isUrgent: Bool
 }

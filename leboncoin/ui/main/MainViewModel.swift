@@ -10,12 +10,12 @@ import Combine
 
 class MainViewModel {
     private var cancellables = Set<AnyCancellable>()
-    private let apiService = ApiService()
+    private let getItemListUseCase = GetItemListUseCase()
     
     @Published var items: [LBCItem] = []
         
     func fetchItems() {
-        apiService.fetchItems()
+        getItemListUseCase.execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -36,7 +36,7 @@ class MainViewModel {
                     }
                 }
               }) { items in
-                  self.items = items.map({ $0.toModel() }).sorted(by: { $0.creationDate > $1.creationDate })
+                  self.items = items.sorted(by: { $0.creationDate > $1.creationDate })
             }
             .store(in: &cancellables)
     }

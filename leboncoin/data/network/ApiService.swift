@@ -51,4 +51,38 @@ class ApiService {
             }
             .eraseToAnyPublisher()
     }
+    
+    func fetchCategories() -> AnyPublisher<[LBCCategoryDto], Error> {
+        guard let listingUrl = URL(string: rootUrl + "categories.json") else {
+            return Fail(error: ApiError.invalidRequestError("Wrong url"))
+                .eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: listingUrl)
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else {
+                    throw ApiError.networkError("Response error")
+                }
+                return element.data
+              }
+            .tryMap { data -> [LBCCategoryDto] in
+              let decoder = JSONDecoder()
+              do {
+                return try decoder.decode([LBCCategoryDto].self,
+                                          from: data)
+              } catch DecodingError.dataCorrupted(_) {
+                  throw ApiError.decodingError("Data corrupted")
+              } catch let DecodingError.keyNotFound(key, _) {
+                  throw ApiError.decodingError("Key '\(key)' not found")
+              } catch let DecodingError.valueNotFound(value, _) {
+                  throw ApiError.decodingError("Value '\(value)' not found")
+              } catch let DecodingError.typeMismatch(type, _)  {
+                  throw ApiError.decodingError("Type '\(type)' mismatch")
+              } catch {
+                  throw ApiError.generalError("Something went wrong")
+              }
+            }
+            .eraseToAnyPublisher()
+    }
 }
