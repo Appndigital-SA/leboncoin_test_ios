@@ -112,6 +112,8 @@ class DetailViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
+        contentView.accessibilityIdentifier = "detailItemViewIdentifier"
+        
         if let imagesUrl = item.imagesUrl, let url = URL(string: imagesUrl.thumb) {
             contentView.addArrangedSubview(itemImage)
             itemImage.load(url: url)

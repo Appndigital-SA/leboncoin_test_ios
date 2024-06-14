@@ -1,5 +1,5 @@
 //
-//  GetItemListUseCase.swift
+//  GetItemListUseCaseImpl.swift
 //  leboncoin
 //
 //  Created by Didier Nizard on 13/06/2024.
@@ -7,7 +7,7 @@
 
 import Combine
 
-class GetItemListUseCase {
+class GetItemListUseCaseImpl: GetItemListUseCase {
     private let itemRepository: ItemRepository
         
     init(itemRepository: ItemRepository = ItemRepositoryImpl()) {

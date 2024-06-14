@@ -17,7 +17,11 @@ enum MainLoadingState {
 
 class MainViewModel {
     private var cancellables = Set<AnyCancellable>()
-    private let getItemListUseCase = GetItemListUseCase()
+    private let getItemListUseCase: GetItemListUseCase
+    
+    init(useCase: GetItemListUseCase = GetItemListUseCaseImpl()) {
+        getItemListUseCase = useCase
+    }
     
     @Published var items: [LBCItem] = []
     @Published var state: MainLoadingState = .loading
