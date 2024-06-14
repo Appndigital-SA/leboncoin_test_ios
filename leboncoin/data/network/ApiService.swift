@@ -25,6 +25,9 @@ class ApiService {
         }
         
         return URLSession.shared.dataTaskPublisher(for: listingUrl)
+            .mapError { (error : URLError) -> Error  in
+                return ApiError.networkError("Network unavailable")
+            }
             .tryMap() { element -> Data in
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode == 200 else {
@@ -59,6 +62,9 @@ class ApiService {
         }
         
         return URLSession.shared.dataTaskPublisher(for: listingUrl)
+            .mapError { (error : URLError) -> Error  in
+                return ApiError.networkError("Network unavailable")
+            }
             .tryMap() { element -> Data in
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode == 200 else {
