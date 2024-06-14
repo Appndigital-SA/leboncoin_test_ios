@@ -8,13 +8,24 @@
 import Foundation
 import Combine
 
+enum MainLoadingState {
+    case loading
+    case finished
+    case error(String)
+    case empty
+}
+
 class MainViewModel {
     private var cancellables = Set<AnyCancellable>()
     private let getItemListUseCase = GetItemListUseCase()
     
     @Published var items: [LBCItem] = []
+    @Published var state: MainLoadingState = .loading
         
     func fetchItems() {
+        items = []
+        state = .loading
+        
         getItemListUseCase.execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -25,18 +36,25 @@ class MainViewModel {
                     if let apiError = error as? ApiError {
                         switch apiError {
                         case .invalidRequestError(let string):
-                            print(string)
+                            self.state = .error(string)
                         case .networkError(let string):
-                            print(string)
+                            self.state = .error(string)
                         case .decodingError(let string):
-                            print(string)
+                            self.state = .error(string)
                         case .generalError(let string):
-                            print(string)
+                            self.state = .error(string)
                         }
+                    } else {
+                        self.state = .error("Une erreur est survenue")
                     }
                 }
               }) { items in
                   self.items = items.sorted(by: { $0.creationDate > $1.creationDate })
+                  if items.isEmpty {
+                      self.state = .empty
+                  } else {
+                      self.state = .finished
+                  }
             }
             .store(in: &cancellables)
     }

@@ -19,6 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         
         let navigationVC = UINavigationController()
+        navigationVC.navigationBar.prefersLargeTitles = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.accent
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationVC.navigationBar.tintColor = .white
+        navigationVC.navigationBar.standardAppearance = appearance
+        navigationVC.navigationBar.scrollEdgeAppearance = appearance
         
         window.rootViewController = navigationVC
         

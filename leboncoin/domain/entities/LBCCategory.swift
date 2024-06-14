@@ -32,7 +32,7 @@ extension LBCCategory {
         case 8:
             return .cyan
         case 9:
-            return .yellow
+            return .gray
         case 10:
             return .magenta
         case 11:

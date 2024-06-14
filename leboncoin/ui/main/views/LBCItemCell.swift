@@ -89,6 +89,8 @@ class LBCItemCell: UITableViewCell {
     func updateUI() {
         if let imagesUrl = lbcItem.imagesUrl, let url = URL(string: imagesUrl.small) {
             itemImage.load(url: url)
+        } else {
+            itemImage.image = UIImage(named: "placeholder")
         }
         
         itemTitle.text = lbcItem.title
