@@ -110,6 +110,7 @@ class MainViewController: UIViewController {
         
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = .white
+        tableView.accessibilityIdentifier = "itemsTableView"
     }
     
     private func configureLayout() {
