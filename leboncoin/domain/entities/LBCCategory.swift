@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct LBCCategory: Decodable {
+struct LBCCategory: Decodable, Hashable {
     let id: Int
     let name: String
 }

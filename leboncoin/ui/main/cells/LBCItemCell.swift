@@ -9,7 +9,7 @@ import UIKit
 
 class LBCItemCell: UITableViewCell {
     
-    private let lbcItem: LBCItem
+    private var lbcItem: LBCItem!
     
     @UsesAutoLayout
     private var itemImage: UIImageView = {
@@ -50,14 +50,18 @@ class LBCItemCell: UITableViewCell {
        return lbl
     }()
     
-    init(item: LBCItem) {
-        lbcItem = item
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        super.init(style: .default, reuseIdentifier: "ItemCell")
         contentView.backgroundColor = .white
         accessoryType = .disclosureIndicator
         
         contentView.addSubviews(itemImage, itemTitle, itemCatgeory, itemUrgent, itemPrice)
+    }
+    
+    func setUp(item: LBCItem) {
+        lbcItem = item
+        
         configureView()
         updateUI()
     }
@@ -87,6 +91,7 @@ class LBCItemCell: UITableViewCell {
     }
     
     func updateUI() {
+        itemImage.image = nil
         if let imagesUrl = lbcItem.imagesUrl, let url = URL(string: imagesUrl.small) {
             itemImage.load(url: url)
         } else {

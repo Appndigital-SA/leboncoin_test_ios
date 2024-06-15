@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70EBC292C1CAB2F00BFD4DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC282C1CAB2F00BFD4DA /* SettingsViewController.swift */; };
+		B70EBC2B2C1CB31700BFD4DA /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2A2C1CB31700BFD4DA /* RadioButton.swift */; };
+		B70EBC2D2C1CB7AD00BFD4DA /* SwitchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2C2C1CB7AD00BFD4DA /* SwitchLabel.swift */; };
+		B70EBC302C1CBACD00BFD4DA /* LBCConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2F2C1CBACD00BFD4DA /* LBCConfiguration.swift */; };
 		B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8BFA2C18D26D0045C439 /* AppDelegate.swift */; };
 		B72B8C042C18D26E0045C439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72B8C032C18D26E0045C439 /* Assets.xcassets */; };
 		B72B8C072C18D26E0045C439 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B72B8C062C18D26E0045C439 /* Base */; };
@@ -32,6 +36,8 @@
 		B7344EF22C1C3A3A0092FF44 /* GetItemListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7344EF12C1C3A3A0092FF44 /* GetItemListUseCaseTests.swift */; };
 		B7344EF62C1C68060092FF44 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7344EF52C1C68060092FF44 /* MainViewModelTests.swift */; };
 		B7344EF92C1C68C30092FF44 /* GetItemListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7344EF82C1C68C30092FF44 /* GetItemListUseCase.swift */; };
+		B7344EFB2C1C839C0092FF44 /* Sequence+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7344EFA2C1C839C0092FF44 /* Sequence+extension.swift */; };
+		B7344EFD2C1C8B390092FF44 /* LBCCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7344EFC2C1C8B390092FF44 /* LBCCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B70EBC282C1CAB2F00BFD4DA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B70EBC2A2C1CB31700BFD4DA /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		B70EBC2C2C1CB7AD00BFD4DA /* SwitchLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLabel.swift; sourceTree = "<group>"; };
+		B70EBC2F2C1CBACD00BFD4DA /* LBCConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCConfiguration.swift; sourceTree = "<group>"; };
 		B72B8BF72C18D26D0045C439 /* leboncoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leboncoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72B8BFA2C18D26D0045C439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B72B8C032C18D26E0045C439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +90,8 @@
 		B7344EF12C1C3A3A0092FF44 /* GetItemListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemListUseCaseTests.swift; sourceTree = "<group>"; };
 		B7344EF52C1C68060092FF44 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		B7344EF82C1C68C30092FF44 /* GetItemListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemListUseCase.swift; sourceTree = "<group>"; };
+		B7344EFA2C1C839C0092FF44 /* Sequence+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extension.swift"; sourceTree = "<group>"; };
+		B7344EFC2C1C8B390092FF44 /* LBCCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCCategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B70EBC2E2C1CBA6F00BFD4DA /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B72B8C442C19F5220045C439 /* LBCItemCell.swift */,
+				B7344EFC2C1C8B390092FF44 /* LBCCategoryCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		B72B8BEE2C18D26D0045C439 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +219,7 @@
 		B72B8C362C19C9E00045C439 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				B70EBC2E2C1CBA6F00BFD4DA /* cells */,
 				B72B8C432C19F5080045C439 /* views */,
 				B72B8C372C19C9EE0045C439 /* MainViewModel.swift */,
 			);
@@ -218,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C3B2C19EE050045C439 /* LBCItem.swift */,
+				B70EBC2F2C1CBACD00BFD4DA /* LBCConfiguration.swift */,
 				B72B8C3D2C19EE4F0045C439 /* LBCImagesUrl.swift */,
 				B72B8C532C1ACAFD0045C439 /* LBCCategory.swift */,
 			);
@@ -246,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C2A2C18D3B00045C439 /* MainViewController.swift */,
-				B72B8C442C19F5220045C439 /* LBCItemCell.swift */,
+				B70EBC282C1CAB2F00BFD4DA /* SettingsViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -256,6 +279,7 @@
 			children = (
 				B72B8C472C19F93C0045C439 /* UIImageView+extension.swift */,
 				B72B8C492C1A1B550045C439 /* UIView+extension.swift */,
+				B7344EFA2C1C839C0092FF44 /* Sequence+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -264,6 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C4C2C1A1C570045C439 /* PaddingLabel.swift */,
+				B70EBC2A2C1CB31700BFD4DA /* RadioButton.swift */,
+				B70EBC2C2C1CB7AD00BFD4DA /* SwitchLabel.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -471,19 +497,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70EBC302C1CBACD00BFD4DA /* LBCConfiguration.swift in Sources */,
 				B72B8C322C1987750045C439 /* LBCItemDto.swift in Sources */,
 				B72B8C422C19F4E60045C439 /* UsesAutoLayout.swift in Sources */,
 				B72B8C342C1988940045C439 /* LBCImagesUrlDto.swift in Sources */,
 				B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */,
+				B70EBC2D2C1CB7AD00BFD4DA /* SwitchLabel.swift in Sources */,
+				B7344EFB2C1C839C0092FF44 /* Sequence+extension.swift in Sources */,
 				B72B8C452C19F5220045C439 /* LBCItemCell.swift in Sources */,
 				B72B8C2B2C18D3B00045C439 /* MainViewController.swift in Sources */,
 				B72B8C502C1A20F60045C439 /* ItemRepository.swift in Sources */,
 				B7344EF92C1C68C30092FF44 /* GetItemListUseCase.swift in Sources */,
 				B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */,
 				B72B8C3C2C19EE050045C439 /* LBCItem.swift in Sources */,
+				B7344EFD2C1C8B390092FF44 /* LBCCategoryCell.swift in Sources */,
 				B72B8C522C1AC9D70045C439 /* LBCCategoryDto.swift in Sources */,
 				B72B8C5D2C1B63060045C439 /* DetailViewController.swift in Sources */,
 				B72B8C2F2C19871C0045C439 /* ApiService.swift in Sources */,
+				B70EBC2B2C1CB31700BFD4DA /* RadioButton.swift in Sources */,
+				B70EBC292C1CAB2F00BFD4DA /* SettingsViewController.swift in Sources */,
 				B72B8C542C1ACAFD0045C439 /* LBCCategory.swift in Sources */,
 				B72B8C572C1AD4850045C439 /* GetItemListUseCaseImpl.swift in Sources */,
 				B72B8C382C19C9EE0045C439 /* MainViewModel.swift in Sources */,
