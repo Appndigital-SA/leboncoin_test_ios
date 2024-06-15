@@ -27,7 +27,9 @@ final class leboncoinUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        app.cells.firstMatch.tap()
+        let tableView = app.tables.matching(identifier: "itemsTableView")
+        let cell = tableView.cells.firstMatch
+        cell.tap()
         
         XCTAssertTrue(app.otherElements["detailItemViewIdentifier"].waitForExistence(timeout: 5))
     }
