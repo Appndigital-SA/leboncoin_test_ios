@@ -11,6 +11,13 @@
 		B70EBC2B2C1CB31700BFD4DA /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2A2C1CB31700BFD4DA /* RadioButton.swift */; };
 		B70EBC2D2C1CB7AD00BFD4DA /* SwitchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2C2C1CB7AD00BFD4DA /* SwitchLabel.swift */; };
 		B70EBC302C1CBACD00BFD4DA /* LBCConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC2F2C1CBACD00BFD4DA /* LBCConfiguration.swift */; };
+		B70EBC322C1ED23700BFD4DA /* GetCategorieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC312C1ED23700BFD4DA /* GetCategorieListUseCase.swift */; };
+		B70EBC342C1ED25800BFD4DA /* GetCategorieListUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC332C1ED25800BFD4DA /* GetCategorieListUseCaseImpl.swift */; };
+		B70EBC392C1EE93100BFD4DA /* LBCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC382C1EE93100BFD4DA /* LBCModule.swift */; };
+		B70EBC3B2C1EECAA00BFD4DA /* InjectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC3A2C1EECAA00BFD4DA /* InjectionProtocol.swift */; };
+		B70EBC3E2C1EF42400BFD4DA /* MockEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC3D2C1EF42400BFD4DA /* MockEntities.swift */; };
+		B70EBC402C1F1FDA00BFD4DA /* GetCategorieListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC3F2C1F1FDA00BFD4DA /* GetCategorieListUseCaseTests.swift */; };
+		B70EBC442C1F239000BFD4DA /* ItemRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70EBC432C1F239000BFD4DA /* ItemRepositoryTests.swift */; };
 		B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B8BFA2C18D26D0045C439 /* AppDelegate.swift */; };
 		B72B8C042C18D26E0045C439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72B8C032C18D26E0045C439 /* Assets.xcassets */; };
 		B72B8C072C18D26E0045C439 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B72B8C062C18D26E0045C439 /* Base */; };
@@ -62,6 +69,13 @@
 		B70EBC2A2C1CB31700BFD4DA /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		B70EBC2C2C1CB7AD00BFD4DA /* SwitchLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLabel.swift; sourceTree = "<group>"; };
 		B70EBC2F2C1CBACD00BFD4DA /* LBCConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCConfiguration.swift; sourceTree = "<group>"; };
+		B70EBC312C1ED23700BFD4DA /* GetCategorieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategorieListUseCase.swift; sourceTree = "<group>"; };
+		B70EBC332C1ED25800BFD4DA /* GetCategorieListUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategorieListUseCaseImpl.swift; sourceTree = "<group>"; };
+		B70EBC382C1EE93100BFD4DA /* LBCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCModule.swift; sourceTree = "<group>"; };
+		B70EBC3A2C1EECAA00BFD4DA /* InjectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionProtocol.swift; sourceTree = "<group>"; };
+		B70EBC3D2C1EF42400BFD4DA /* MockEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEntities.swift; sourceTree = "<group>"; };
+		B70EBC3F2C1F1FDA00BFD4DA /* GetCategorieListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategorieListUseCaseTests.swift; sourceTree = "<group>"; };
+		B70EBC432C1F239000BFD4DA /* ItemRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepositoryTests.swift; sourceTree = "<group>"; };
 		B72B8BF72C18D26D0045C439 /* leboncoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leboncoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72B8BFA2C18D26D0045C439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B72B8C032C18D26E0045C439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +142,38 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B70EBC372C1EE91F00BFD4DA /* di */ = {
+			isa = PBXGroup;
+			children = (
+				B70EBC382C1EE93100BFD4DA /* LBCModule.swift */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		B70EBC3C2C1EF41400BFD4DA /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				B70EBC3D2C1EF42400BFD4DA /* MockEntities.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		B70EBC412C1F236700BFD4DA /* data */ = {
+			isa = PBXGroup;
+			children = (
+				B70EBC422C1F237400BFD4DA /* repositories */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		B70EBC422C1F237400BFD4DA /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B70EBC432C1F239000BFD4DA /* ItemRepositoryTests.swift */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
 		B72B8BEE2C18D26D0045C439 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +211,7 @@
 		B72B8C102C18D26E0045C439 /* leboncoinTests */ = {
 			isa = PBXGroup;
 			children = (
+				B70EBC412C1F236700BFD4DA /* data */,
 				B7344EF32C1C67770092FF44 /* ui */,
 				B7344EEF2C1C39E80092FF44 /* domain */,
 			);
@@ -250,6 +297,7 @@
 		B72B8C3F2C19F4D50045C439 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				B70EBC372C1EE91F00BFD4DA /* di */,
 				B72B8C4B2C1A1C490045C439 /* custom */,
 				B72B8C462C19F92A0045C439 /* extensions */,
 				B72B8C402C19F4DF0045C439 /* helpers */,
@@ -261,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				B72B8C412C19F4E60045C439 /* UsesAutoLayout.swift */,
+				B70EBC3A2C1EECAA00BFD4DA /* InjectionProtocol.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -307,6 +356,7 @@
 			children = (
 				B7344EF72C1C68A60092FF44 /* protocols */,
 				B72B8C562C1AD4850045C439 /* GetItemListUseCaseImpl.swift */,
+				B70EBC332C1ED25800BFD4DA /* GetCategorieListUseCaseImpl.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";
@@ -330,6 +380,7 @@
 		B7344EEF2C1C39E80092FF44 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				B70EBC3C2C1EF41400BFD4DA /* entities */,
 				B7344EF02C1C39F20092FF44 /* usescases */,
 			);
 			path = domain;
@@ -339,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				B7344EF12C1C3A3A0092FF44 /* GetItemListUseCaseTests.swift */,
+				B70EBC3F2C1F1FDA00BFD4DA /* GetCategorieListUseCaseTests.swift */,
 			);
 			path = usescases;
 			sourceTree = "<group>";
@@ -363,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				B7344EF82C1C68C30092FF44 /* GetItemListUseCase.swift */,
+				B70EBC312C1ED23700BFD4DA /* GetCategorieListUseCase.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -504,16 +557,20 @@
 				B72B8BFB2C18D26D0045C439 /* AppDelegate.swift in Sources */,
 				B70EBC2D2C1CB7AD00BFD4DA /* SwitchLabel.swift in Sources */,
 				B7344EFB2C1C839C0092FF44 /* Sequence+extension.swift in Sources */,
+				B70EBC3B2C1EECAA00BFD4DA /* InjectionProtocol.swift in Sources */,
 				B72B8C452C19F5220045C439 /* LBCItemCell.swift in Sources */,
 				B72B8C2B2C18D3B00045C439 /* MainViewController.swift in Sources */,
 				B72B8C502C1A20F60045C439 /* ItemRepository.swift in Sources */,
 				B7344EF92C1C68C30092FF44 /* GetItemListUseCase.swift in Sources */,
 				B72B8C4A2C1A1B550045C439 /* UIView+extension.swift in Sources */,
+				B70EBC392C1EE93100BFD4DA /* LBCModule.swift in Sources */,
 				B72B8C3C2C19EE050045C439 /* LBCItem.swift in Sources */,
 				B7344EFD2C1C8B390092FF44 /* LBCCategoryCell.swift in Sources */,
 				B72B8C522C1AC9D70045C439 /* LBCCategoryDto.swift in Sources */,
 				B72B8C5D2C1B63060045C439 /* DetailViewController.swift in Sources */,
+				B70EBC322C1ED23700BFD4DA /* GetCategorieListUseCase.swift in Sources */,
 				B72B8C2F2C19871C0045C439 /* ApiService.swift in Sources */,
+				B70EBC342C1ED25800BFD4DA /* GetCategorieListUseCaseImpl.swift in Sources */,
 				B70EBC2B2C1CB31700BFD4DA /* RadioButton.swift in Sources */,
 				B70EBC292C1CAB2F00BFD4DA /* SettingsViewController.swift in Sources */,
 				B72B8C542C1ACAFD0045C439 /* LBCCategory.swift in Sources */,
@@ -530,8 +587,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70EBC442C1F239000BFD4DA /* ItemRepositoryTests.swift in Sources */,
+				B70EBC402C1F1FDA00BFD4DA /* GetCategorieListUseCaseTests.swift in Sources */,
 				B7344EF62C1C68060092FF44 /* MainViewModelTests.swift in Sources */,
 				B7344EF22C1C3A3A0092FF44 /* GetItemListUseCaseTests.swift in Sources */,
+				B70EBC3E2C1EF42400BFD4DA /* MockEntities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

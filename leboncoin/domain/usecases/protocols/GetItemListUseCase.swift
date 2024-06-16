@@ -8,5 +8,5 @@
 import Combine
 
 protocol GetItemListUseCase {
-    func execute() -> AnyPublisher<[LBCItem], Error>
+    func execute(configuration: LBCConfiguration) -> AnyPublisher<[LBCItem], Error>
 }

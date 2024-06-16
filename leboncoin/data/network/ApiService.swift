@@ -15,7 +15,12 @@ enum ApiError: LocalizedError {
     case generalError(String)
 }
 
-class ApiService {
+protocol ApiService {
+    func fetchItems() -> AnyPublisher<[LBCItemDto], Error>
+    func fetchCategories() -> AnyPublisher<[LBCCategoryDto], Error>
+}
+
+class ApiServiceImpl: ApiService {
     private let rootUrl = "https://raw.githubusercontent.com/leboncoin/paperclip/master/"
     
     func fetchItems() -> AnyPublisher<[LBCItemDto], Error> {

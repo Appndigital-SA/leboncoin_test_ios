@@ -8,5 +8,6 @@
 import Combine
 
 protocol ItemRepository {
-    func fetchItemList() -> AnyPublisher<[LBCItem], Error>
+    func fetchCategoriesList() -> AnyPublisher<[LBCCategory], Error>
+    func fetchItemsList(configuration: LBCConfiguration) -> AnyPublisher<[LBCItem], Error>
 }

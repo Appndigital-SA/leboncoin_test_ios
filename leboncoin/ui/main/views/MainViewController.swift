@@ -90,7 +90,7 @@ class MainViewController: UIViewController {
         configureLayout()
         setUpBindings()
         
-        viewModel.fetchItems()
+        viewModel.fetchCategories()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -193,10 +193,10 @@ class MainViewController: UIViewController {
                 case .empty:
                     self.loader.stopAnimating()
                     self.tableView.isHidden = true
-                    self.collectionView.isHidden = true
+                    self.collectionView.isHidden = false
                     self.errorLabel.isHidden = false
                     self.errorLabel.text = "Aucune offre disponible"
-                    self.reloadButton.isHidden = false
+                    self.reloadButton.isHidden = true
                 }
             }
             .store(in: &cancellables)
