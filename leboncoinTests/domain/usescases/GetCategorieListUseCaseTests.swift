@@ -1,15 +1,15 @@
 //
-//  GetItemListUseCaseTests.swift
+//  GetCategorieListUseCaseTests.swift
 //  leboncoinTests
 //
-//  Created by Didier Nizard on 14/06/2024.
+//  Created by Didier Nizard on 16/06/2024.
 //
 
 import XCTest
 import Combine
 @testable import leboncoin
 
-class GetItemListUseCaseTests: XCTestCase {
+class GetCategorieListUseCaseTests: XCTestCase {
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -39,15 +39,15 @@ class GetItemListUseCaseTests: XCTestCase {
         }
     }
     
-    func testGetItemListUseCase_success() {
+    func testGetCategorieListUseCase_success() {
         let expectation = expectation(description: "Wait for items")
         var error: Error?
-        var items: [LBCItem] = []
+        var items: [LBCCategory] = []
         
         InjectedValues[\.itemRepositoryProvider] = SuccessItemRepositoryMock()
-        let getItemListUseCase = GetItemListUseCaseImpl()
+        let getCategorieListUseCase = GetCategorieListUseCaseImpl()
         
-        getItemListUseCase.execute(configuration: LBCConfiguration())
+        getCategorieListUseCase.execute()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -63,26 +63,20 @@ class GetItemListUseCaseTests: XCTestCase {
             }
             .store(in: &cancellables)
         
-        // Awaiting fulfilment of our expecation before
-        // performing our asserts:
         waitForExpectations(timeout: 10)
-
-        // Asserting that our Combine pipeline yielded the
-        // correct output:
+        
         XCTAssertNil(error)
         XCTAssertEqual(items.count, 3)
-        XCTAssertEqual(items.filter({ $0.isUrgent }).count, 1)
-        XCTAssertEqual(items.filter({ !$0.isUrgent }).count, 2)
     }
     
-    func testGetItemListUseCase_failure() {
+    func testGetCategorieListUseCase_failure() {
         let expectation = expectation(description: "Wait for items")
         var apiError: ApiError?
         
         InjectedValues[\.itemRepositoryProvider] = FailureItemRepositoryMock()
-        let getItemListUseCase = GetItemListUseCaseImpl()
+        let getCategorieListUseCase = GetCategorieListUseCaseImpl()
         
-        getItemListUseCase.execute(configuration: LBCConfiguration())
+        getCategorieListUseCase.execute()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -98,12 +92,9 @@ class GetItemListUseCaseTests: XCTestCase {
             }
             .store(in: &cancellables)
         
-        // Awaiting fulfilment of our expecation before
-        // performing our asserts:
         waitForExpectations(timeout: 10)
         
-        // Asserting that our Combine pipeline yielded the
-        // correct output:
         XCTAssertNotNil(apiError)
     }
 }
+

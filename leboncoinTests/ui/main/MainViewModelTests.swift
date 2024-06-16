@@ -14,14 +14,16 @@ class MainViewModelTests: XCTestCase {
     private var cancellables = Set<AnyCancellable>()
     
     class GetItemListUseCaseMock: GetItemListUseCase {
-        let mockItems = [
-            LBCItem(id: 1, title: "Item 1", description: "Description 1", price: 1, imagesUrl: nil, category: LBCCategory(id: 1, name: "Véhicule"), creationDate: Date(), isUrgent: false),
-            LBCItem(id: 2, title: "Item 2", description: "Description 2", price: 2, imagesUrl: nil, category: LBCCategory(id: 2, name: "Mode"), creationDate: Date(), isUrgent: true),
-            LBCItem(id: 2, title: "Item 3", description: "Description 3", price: 3, imagesUrl: nil, category: LBCCategory(id: 3, name: "Bricolage"), creationDate: Date(), isUrgent: false),
-        ]
-        
-        func execute() -> AnyPublisher<[leboncoin.LBCItem], any Error> {
-            return Just(mockItems)
+        func execute(configuration: leboncoin.LBCConfiguration) -> AnyPublisher<[leboncoin.LBCItem], any Error> {
+            return Just(MockEntities.mockItems)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    class GetCategorieListUseCaseMock: GetCategorieListUseCase {
+        func execute() -> AnyPublisher<[leboncoin.LBCCategory], any Error> {
+            return Just(MockEntities.mockCategories)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }
@@ -30,8 +32,9 @@ class MainViewModelTests: XCTestCase {
     func test_whenUseCaseRetrievesItems_thenViewModelContainsSame() {
         let expectation = expectation(description: "Wait for items")
         
-        let getItemListUseCaseMock = GetItemListUseCaseMock()
-        let viewModel = MainViewModel(useCase: getItemListUseCaseMock)
+        InjectedValues[\.getItemListUseCaseProvider] = GetItemListUseCaseMock()
+        InjectedValues[\.getCategoryListUseCaseProvider] = GetCategorieListUseCaseMock()
+        let viewModel = MainViewModel()
         var receivedValues: [leboncoin.LBCItem] = []
         
         viewModel.$items

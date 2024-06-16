@@ -17,27 +17,54 @@ enum MainLoadingState {
 
 class MainViewModel {
     private var cancellables = Set<AnyCancellable>()
-    private let getItemListUseCase: GetItemListUseCase
     
-    init(useCase: GetItemListUseCase = GetItemListUseCaseImpl()) {
-        getItemListUseCase = useCase
-    }
+    @Injected(\.getItemListUseCaseProvider) var getItemListUseCase: GetItemListUseCase
+    @Injected(\.getCategoryListUseCaseProvider) var getCategoryListUseCase: GetCategorieListUseCase
     
     var allItems: [LBCItem] = []
     var configuration = LBCConfiguration()
     
     @Published var items: [LBCItem] = []
     @Published var state: MainLoadingState = .loading
-    @Published var categories: [LBCCategory] = [LBCCategory(id: 0, name: "Tous")]
+    @Published var categories: [LBCCategory] = []
     
     var onlyUrgent: Bool = false
+    
+    func fetchCategories() {
+        getCategoryListUseCase.execute()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                  break
+                case .failure(let error):
+                    if let apiError = error as? ApiError {
+                        switch apiError {
+                        case .invalidRequestError(let string):
+                            self.state = .error(string)
+                        case .networkError(let string):
+                            self.state = .error(string)
+                        case .decodingError(let string):
+                            self.state = .error(string)
+                        case .generalError(let string):
+                            self.state = .error(string)
+                        }
+                    } else {
+                        self.state = .error("Une erreur est survenue")
+                    }
+                }
+              }) { result in
+                  self.categories = result
+                  self.fetchItems()
+            }
+            .store(in: &cancellables)
+    }
         
     func fetchItems() {
         items = []
         state = .loading
-        categories = [LBCCategory(id: 0, name: "Tous")]
         
-        getItemListUseCase.execute()
+        getItemListUseCase.execute(configuration: configuration)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -60,11 +87,7 @@ class MainViewModel {
                     }
                 }
               }) { items in
-                  self.allItems = items.sorted(by: { $0.creationDate > $1.creationDate })
-                  self.publishItems()
-                  
-                  self.categories += self.allItems.filter({ $0.category != nil }).map({ $0.category! }).unique().sorted(by: { $0.id < $1.id })
-                  
+                  self.items = items
                   if items.isEmpty {
                       self.state = .empty
                   } else {
@@ -74,44 +97,18 @@ class MainViewModel {
             .store(in: &cancellables)
     }
     
-    func publishItems() {
-        var itemsToPublish: [LBCItem] = []
-        if configuration.selectedCategory == 0 {
-            itemsToPublish = allItems
-        } else {
-            itemsToPublish = allItems.filter({ $0.category?.id == configuration.selectedCategory })
-        }
-        
-        switch configuration.sortType {
-        case .dateAsc:
-            itemsToPublish.sort(by: { $0.creationDate < $1.creationDate })
-        case .dateDesc:
-            itemsToPublish.sort(by: { $0.creationDate > $1.creationDate })
-        case .priceAsc:
-            itemsToPublish.sort(by: { $0.price < $1.price })
-        case .priceDesc:
-            itemsToPublish.sort(by: { $0.price > $1.price })
-        }
-        
-        if configuration.onlyUrgent {
-            itemsToPublish = itemsToPublish.filter({ $0.isUrgent })
-        }
-        
-        items = itemsToPublish
-    }
-    
     func filterBy(_ category: LBCCategory) {
         configuration.selectedCategory = category.id
-        publishItems()
+        fetchItems()
     }
     
     func sortOnlyUrgent(isChecked: Bool) {
         configuration.onlyUrgent = isChecked
-        publishItems()
+        fetchItems()
     }
     
     func sortBy(_ sortType: SortType) {
         configuration.sortType = sortType
-        publishItems()
+        fetchItems()
     }
 }

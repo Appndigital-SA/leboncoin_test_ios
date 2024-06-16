@@ -8,13 +8,9 @@
 import Combine
 
 class GetItemListUseCaseImpl: GetItemListUseCase {
-    private let itemRepository: ItemRepository
-        
-    init(itemRepository: ItemRepository = ItemRepositoryImpl()) {
-        self.itemRepository = itemRepository
-    }
+    @Injected(\.itemRepositoryProvider) var itemRepository: ItemRepository
     
-    func execute() -> AnyPublisher<[LBCItem], Error> {
-        return itemRepository.fetchItemList()
+    func execute(configuration: LBCConfiguration) -> AnyPublisher<[LBCItem], Error> {
+        return itemRepository.fetchItemsList(configuration: configuration)
     }
 }
